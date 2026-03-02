@@ -1,15 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional CV </title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <!--Header section-->
-<header> Welcome to my Professional CV
-     </header>
-    <main>
-        <h1>Summary</h1>
-     <section> 
+/* =========================
+   Professional CV (Clean / Print-Ready)
+   ========================= */
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --page: #ffffff;
+  --text: #111827;     /* near-black */
+  --muted: #4b5563;    /* gray */
+  --line: #e5e7eb;     /* light border */
+  --accent: #0f766e;   /* teal */
+  --accent-soft: #ecfeff;
+}
+
+/* Page */
+html { font-size: 16px; }
+
+body {
+  margin: 0;
+  background: #f3f4f6;              /* light gray page background */
+  color: var(--text);
+  font-family: "Calibri", "Arial", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.55;
+  padding: 28px 14px;
+}
+
+/* Header / Main container */
+header,
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--page);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+/* Header */
+header {
+  padding: 18px 22px;
+  border-radius: 14px 14px 0 0;
+  border-bottom: none;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #22c55e);
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+/* Main */
+main {
+  padding: 22px 22px 26px;
+  border-radius: 0 0 14px 14px;
+}
+
+/* Typography */
+h1 {
+  margin: 0 0 10px 0;
+  font-size: 1.55rem;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.08rem;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: var(--text);
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+h2::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+h3 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* Paragraphs */
+p {
+  margin: 10px 0;
+  color: var(--text);
+}
+
+p small,
+.small {
+  color: var(--muted);
+}
+
+/* Sections */
+section {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+section:first-of-type {
+  border-top: none;
+  padding-top: 8px;
+}
+
+/* Lists */
+ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+li {
+  margin: 6px 0;
+  color: var(--text);
+}
+
+/* Make tools/keywords look professional (not bubbles) */
+strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+p strong,
+li strong {
+  background: var(--accent-soft);
+  border: 1px solid #cffafe;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+/* Improve readability of long lines */
+main { overflow-wrap: anywhere; }
+
+/* Responsive */
+@media (max-width: 720px) {
+  body { padding: 18px 12px; }
+  header, main { box-shadow: none; }
+  header { padding: 16px 16px; }
+  main { padding: 18px 16px; }
+  h1 { font-size: 1.35rem; }
+}
+
+/* Print / PDF */
+@media print {
+  body {
+    background: #ffffff;
+    padding: 0;
+  }
+  header, main {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+  }
+  header::after { left: 0; right: 0; }
+}
